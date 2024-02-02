@@ -1,10 +1,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Simple Laravel Blog - Admin">
+    <meta name="description" content="Dzaky Blog - Admin">
     <meta name="author" content="">
 
-    <title>Blog writer - Admin</title>
+    <title>Dzaky Blog - Admin</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ URL::asset('back/css/bootstrap.min.css') }}" rel="stylesheet">

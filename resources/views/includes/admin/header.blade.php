@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{route('admin.dashboard')}}">Blog Writer Admin</a>
+                <a class="navbar-brand" href="{{route('admin.dashboard')}}">Dzaky Blog Admin</a>
             </div>
             <!-- /.navbar-header -->
 
