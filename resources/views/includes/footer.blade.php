@@ -2,9 +2,9 @@
     <div class="container">
         <div class="footer-text">
             <p>
-                LV Blog. | Design by
+                Dzaky Blog | Design by
                 <a href="http://w3layouts.com/" target="_blank">
-                    W3layouts
+                    Anggoro Dzaky
                 </a>
             </p>
         </div>
