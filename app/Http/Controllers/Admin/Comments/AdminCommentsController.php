@@ -12,7 +12,7 @@ class AdminCommentsController extends Controller
 
     public function __construct()
     {
-    	$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -25,30 +25,29 @@ class AdminCommentsController extends Controller
     public function index(Request $request)
     {
 
-        if($request->ajax())
-        {
+        if ($request->ajax()) {
             $model = CommentsModel::query();
             return Datatables::of($model)
                 ->addColumn('actions', function ($model) use ($request) {
                     $id = $model->id;
-                    $link = $request->url().'/'.$id;
+                    $link = $request->url() . '/' . $id;
                     //Edit Button
-                    $actionHtml = '<a href="'.$link.'/edit'.' " class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></a>';
+                    $actionHtml = '<a href="' . $link . '/edit' . ' " class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></a>';
                     //Delete Button
-                    $actionHtml .='<a href="" data-delete-url="'.$link .'" class="btn btn-danger btn-sm delete-data" data-toggle="modal" data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span></a>';
+                    $actionHtml .= '<a href="" data-delete-url="' . $link . '" class="btn btn-danger btn-sm delete-data" data-toggle="modal" data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span></a>';
                     return $actionHtml;
                 })
-                ->addColumn('post',function ($model) use ($request){
+                ->addColumn('post', function ($model) use ($request) {
                     //Show Post title on which user has Commented
                     $actionHtml = $model->post->title;
                     return $actionHtml;
                 })
 
-                ->rawColumns(['actions','status'])
+                ->rawColumns(['actions', 'status'])
                 ->make(true);
         }
 
-    	return view('admin.comments.list');
+        return view('admin.comments.list');
     }
 
     /**
@@ -59,32 +58,32 @@ class AdminCommentsController extends Controller
      */
     public function edit($id)
     {
-    	$comment = CommentsModel::findOrFail($id);
+        $comment = CommentsModel::findOrFail($id);
         $comment->read = '1';
         $comment->save();
-    	$data['comment'] = $comment;
-    	return view('admin.comments.edit',$data);
+        $data['comment'] = $comment;
+        return view('admin.comments.edit', $data);
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $inputs = $request->all();
         $comment = CommentsModel::findOrFail($id);
-        $comment->fill($comment);
+        $comment->fill($inputs);
         $comment->save();
 
-        $request->session()->flash('success','Comment updated successfully');
+        $request->session()->flash('success', 'Comment updated successfully');
 
         return redirect(route('admin.comments'));
     }
 
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
         $inputs = $request->all();
         $comment = CommentsModel::findOrFail($id);
         $comment->delete($id);
-        
-        $request->session()->flash('info','Comment deleted successfully');
+
+        $request->session()->flash('info', 'Comment deleted successfully');
 
         return redirect(route('admin.comments'));
     }
