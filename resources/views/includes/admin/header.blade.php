@@ -71,9 +71,9 @@
                         <li>
                             <a href="{{route('gallery.index')}}"><i class="fa fa-picture-o" aria-hidden="true"></i> Gallery</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{url('admin/contact')}}"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>Contact</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{route('users.index')}}"><i class="fa fa-users fa-fw" aria-hidden="true"></i> Users</a>
                         </li>
