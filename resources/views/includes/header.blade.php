@@ -30,10 +30,10 @@
                         <input type="submit" value="">
                         {{Form::close()}}
                     </div>
-                    <ul>
+                    {{-- <ul>
                         <li><a href="#" class="share-item"><span class="fb"> </span></a></li>
 
-                    </ul>
+                    </ul> --}}
                 </div>
                 <div class="clearfix"></div>
             </div>
